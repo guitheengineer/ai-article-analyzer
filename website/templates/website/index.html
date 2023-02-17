@@ -1,3 +1,10 @@
-{% extends "base.html" %} {% block content %}
-<div>My content</div>
+{% extends "base.html" %} {% block content %} {% load static tailwind_tags %}
+<form id="search-form">
+  <label class="mx-auto w-max">
+    Search for article by URL search
+    <input value="{{ search }}" name="search" type="text" />
+  </label>
+  <button type="submit">Search</button>
+</form>
+
 {% endblock %}
