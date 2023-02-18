@@ -1,10 +1,16 @@
-{% extends "base.html" %} {% block content %} {% load static tailwind_tags %}
-<form id="search-form">
-  <label class="mx-auto w-max">
-    Search for article by URL search
-    <input value="{{ search }}" name="search" type="text" />
+{% extends "base.html" %} {% block content %}
+<form id="search-form" class="flex gap-2">
+  <label class="w-max flex flex-col">
+    <div class="mb-1">Type your article's URL</div>
+    <input value="{{ search }}" name="search" type="url" />
   </label>
-  <button type="submit">Search</button>
+  <button
+    class="flex px-3 h-[42px] items-center mt-auto justify-center bg-black text-white"
+    type="submit"
+  >
+    Search
+  </button>
 </form>
 
+<div class="mt-8">Positivity: {{ positivity }}</div>
 {% endblock %}
