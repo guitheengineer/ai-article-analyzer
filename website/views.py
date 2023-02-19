@@ -1,32 +1,46 @@
-from typing import Any
 from django.shortcuts import render
-from bs4 import BeautifulSoup
-from urllib.request import urlopen
-import requests
+from trafilatura import fetch_url, extract
+from trafilatura.settings import use_config
 from transformers import pipeline
+
+# AI Model text limit
+text_limit = 512
+
+# Fix signal error when using extract.
+config = use_config()
+config.set("DEFAULT", "EXTRACTION_TIMEOUT", "0")
+
+
+def get_text_from_url(url: str) -> str | None:
+    downloaded = fetch_url(url)
+    article_text = extract(downloaded, config=config)
+    return article_text
 
 
 def index(request):
     search = request.GET.get('search')
-    context = {'search': search or ''}
+    error = None
+    context = {'search': search or '', 'error': error}
     if search:
-        try:
-            hasHttp = search.startswith(
-                'https://') or search.startswith('http://')
-            url = search
+        text = get_text_from_url(search)
 
-            if not hasHttp:
-                url = 'http://' + url
+        if not text:
+            error = 'There is no content to analyze.'
+            return
+        positives = 0
+        total = 0
+        classifier = pipeline('sentiment-analysis')
 
-            page = urlopen(url)
-            html = page.read().decode('utf-8')
-            soup = BeautifulSoup(html, 'html.parser')
-            articleText = ' '.join(soup.get_text().split())
-            print(articleText)
-            classifier = pipeline('sentiment-analysis')
-            positivity = classifier(articleText[:512])
-            context['positivity'] = positivity[0]['label']
+        for i in range(0, len(text), text_limit):
+            text_chunk = text[i:i + text_limit]
+            result = classifier(text_chunk)
+            result_label = result[0]['label']
+            total += 1
+            if result_label == 'POSITIVE':
+                positives += 1
 
-        except requests.ConnectionError:
-            print('Error: not able to connect to this website.')
+        positiveness = positives / total * 100
+
+        context['positiviness'] = positiveness
+
     return render(request, 'website/index.html', context)
