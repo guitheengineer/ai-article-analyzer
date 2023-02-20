@@ -17,6 +17,20 @@ def get_text_from_url(url: str) -> str | None:
     return article_text
 
 
+def measure_positivity(text: str):
+    classifier = pipeline(
+        'sentiment-analysis', model='distilbert-base-uncased-finetuned-sst-2-english')
+    label = classifier(text)[0]['label']  # type: ignore
+    return label
+
+
+def summarize(text: str):
+    summarizer = pipeline(
+        'summarization', model='philschmid/bart-large-cnn-samsum')
+    result = summarizer(text)
+    return result[0]['summary_text']  # type: ignore
+
+
 def index(request):
     search = request.GET.get('search')
     error = None
@@ -29,18 +43,18 @@ def index(request):
             return
         positives = 0
         total = 0
-        classifier = pipeline('sentiment-analysis')
 
         for i in range(0, len(text), text_limit):
             text_chunk = text[i:i + text_limit]
-            result = classifier(text_chunk)
-            result_label = result[0]['label']
+            result = measure_positivity(text_chunk)
             total += 1
-            if result_label == 'POSITIVE':
+            if result == 'POSITIVE':
                 positives += 1
 
         positiveness = positives / total * 100
 
+        summary = summarize(text)
         context['positiviness'] = positiveness
+        context['summary'] = summary
 
     return render(request, 'website/index.html', context)
