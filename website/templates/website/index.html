@@ -13,8 +13,14 @@
 </form>
 
 <div class="mt-8 flex flex-col gap-4">
-  <div>Positivity: {{ positiviness }}</div>
-  <div>Summary: {{ summary }}</div>
-  <div>Emotion: {{ emotion }}</div>
+  <div>
+    {% for item in texts %}
+
+    <div>Text: {{ item.text }}</div>
+    <div>Positivity: {{ item.positivity }}</div>
+    <div>Summary: {{ item.summary }}</div>
+    <div>Emotion: {{ item.emotion }}</div>
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}
