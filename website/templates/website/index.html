@@ -12,14 +12,22 @@
   </button>
 </form>
 
-<div class="mt-8 flex flex-col gap-4">
-  <div>
+<div class="mt-8">
+  <div class="flex flex-col gap-4">
     {% for item in texts %}
 
     <div>Text: {{ item.text }}</div>
     <div>Positivity: {{ item.positivity }}</div>
-    <div>Summary: {{ item.summary }}</div>
-    <div>Emotion: {{ item.emotion }}</div>
+    <div>Summarization: {{ item.summary }}</div>
+    <div>Overall Emotion: {{ item.emotion }}</div>
+    <div>Toxicity: {{ item.toxicity.toxicity }}</div>
+    <div>Severe toxicity: {{ item.toxicity.severe_toxicity }}</div>
+    <div>Obscene: {{ item.toxicity.obscene }}</div>
+    <div>Threat: {{ item.toxicity.threat }}</div>
+    <div>Insult: {{ item.toxicity.insult }}</div>
+    <div>Identity Attack: {{ item.toxicity.identity_attack }}</div>
+
+    <hr />
     {% endfor %}
   </div>
 </div>

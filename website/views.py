@@ -2,8 +2,7 @@ from django.shortcuts import render
 from trafilatura import fetch_url, extract
 from trafilatura.settings import use_config
 from transformers import RobertaTokenizerFast, TFRobertaForSequenceClassification, pipeline
-from collections.abc import Callable
-from typing import Any
+from detoxify import Detoxify
 
 tokenizer = RobertaTokenizerFast.from_pretrained("arpanghoshal/EmoRoBERTa")
 model = TFRobertaForSequenceClassification.from_pretrained(
@@ -44,6 +43,11 @@ def get_emotion(text: str):
     return emotion
 
 
+def get_toxicity(text: str):
+    results = Detoxify('original').predict(text)
+    return results
+
+
 def get_chunked_text_infos(text: str):
     text_list = list()
     for i in range(0, len(text), text_limit):
@@ -53,6 +57,7 @@ def get_chunked_text_infos(text: str):
         text_dict['positivity'] = get_positivity(text_chunk)
         text_dict['summary'] = get_summary(text_chunk)
         text_dict['emotion'] = get_emotion(text_chunk)
+        text_dict['toxicity'] = get_toxicity(text_chunk)
         text_list.append(text_dict)
     return text_list
 
@@ -69,6 +74,5 @@ def index(request):
             return
 
         context['texts'] = get_chunked_text_infos(text)
-        print(context['texts'])
 
     return render(request, 'website/index.html', context)
