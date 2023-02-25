@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-  <main class="max-w-[600px] mx-auto mt-10">
+  <main class="max-w-[600px] mx-auto my-10">
     <form id="search-form" class="flex gap-2 w-full">
       <label class="w-full flex flex-col">
         <div class="mb-1.5">Type your article's URL</div>
@@ -11,7 +11,7 @@
         Search
       </button>
     </form>
-    <div class="mt-8">
+    <div class="mt-12">
       <div class="flex flex-col gap-6">
         {% for item in texts %}
           {% include "value.html" with label="Text:" value=item.text %}
@@ -24,7 +24,7 @@
           {% include "value.html" with label="Threat:" value=item.toxicity.threat %}
           {% include "value.html" with label="Insult:" value=item.toxicity.insult %}
           {% include "value.html" with label="Identity Attack:" value=item.toxicity.identity_attack %}
-          <hr class="mt-3" />
+          {% if texts|length > 1 %}<hr class="mt-3" />{% endif %}
         {% endfor %}
       </div>
     </div>

@@ -54,10 +54,10 @@ def get_chunked_text_infos(text: str):
         text_chunk = text[i:i + text_limit]
         text_dict = dict()
         text_dict['text'] = text_chunk
-        text_dict['positivity'] = get_positivity(text_chunk)
-        text_dict['summary'] = get_summary(text_chunk)
-        text_dict['emotion'] = get_emotion(text_chunk)
-        text_dict['toxicity'] = get_toxicity(text_chunk)
+        # text_dict['positivity'] = get_positivity(text_chunk)
+        # text_dict['summary'] = get_summary(text_chunk)
+        # text_dict['emotion'] = get_emotion(text_chunk)
+        # text_dict['toxicity'] = get_toxicity(text_chunk)
         text_list.append(text_dict)
     return text_list
 
