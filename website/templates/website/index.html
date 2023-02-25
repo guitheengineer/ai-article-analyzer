@@ -1,34 +1,32 @@
-{% extends "base.html" %} {% block content %}
-<form id="search-form" class="flex gap-2">
-  <label class="w-max flex flex-col">
-    <div class="mb-1">Type your article's URL</div>
-    <input value="{{ search }}" name="search" type="url" />
-  </label>
-  <button
-    class="flex px-3 h-[42px] items-center mt-auto justify-center bg-black text-white"
-    type="submit"
-  >
-    Search
-  </button>
-</form>
-
-<div class="mt-8">
-  <div class="flex flex-col gap-4">
-    {% for item in texts %}
-
-    <div>Text: {{ item.text }}</div>
-    <div>Positivity: {{ item.positivity }}</div>
-    <div>Summarization: {{ item.summary }}</div>
-    <div>Overall Emotion: {{ item.emotion }}</div>
-    <div>Toxicity: {{ item.toxicity.toxicity }}</div>
-    <div>Severe toxicity: {{ item.toxicity.severe_toxicity }}</div>
-    <div>Obscene: {{ item.toxicity.obscene }}</div>
-    <div>Threat: {{ item.toxicity.threat }}</div>
-    <div>Insult: {{ item.toxicity.insult }}</div>
-    <div>Identity Attack: {{ item.toxicity.identity_attack }}</div>
-
-    <hr />
-    {% endfor %}
-  </div>
-</div>
-{% endblock %}
+{% extends "base.html" %}
+{% block content %}
+  <main class="max-w-[600px] mx-auto">
+    <form id="search-form" class="flex gap-2 w-full">
+      <label class="w-full flex flex-col">
+        <div class="mb-1.5">Type your article's URL</div>
+        <input value="{{ search }}" name="search" type="url" />
+      </label>
+      <button class="flex px-3 h-[42px] items-center mt-auto justify-center bg-black text-white"
+              type="submit">
+        Search
+      </button>
+    </form>
+    <div class="mt-8">
+      <div class="flex flex-col gap-6">
+        {% for item in texts %}
+          {% include "value.html" with label="Text:" value=item.text %}
+          {% include "value.html" with label="Summary:" value=item.summary %}
+          {% include "value.html" with label="Tone:" value=item.positivity %}
+          {% include "value.html" with label="Overall Emotion:" value=item.emotion %}
+          {% include "value.html" with label="Toxicity:" value=item.toxicity.toxicity %}
+          {% include "value.html" with label="Severe toxicity:" value=item.toxicity.severe_toxicity %}
+          {% include "value.html" with label="Obscenity:" value=item.toxicity.obscene %}
+          {% include "value.html" with label="Threat:" value=item.toxicity.threat %}
+          {% include "value.html" with label="Insult:" value=item.toxicity.insult %}
+          {% include "value.html" with label="Identity Attack:" value=item.toxicity.identity_attack %}
+          <hr class="mt-3" />
+        {% endfor %}
+      </div>
+    </div>
+  </main>
+{% endblock content %}

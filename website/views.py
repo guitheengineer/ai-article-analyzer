@@ -25,22 +25,22 @@ def get_text_from_url(url: str) -> str | None:
 def get_positivity(text: str):
     classifier = pipeline(
         'sentiment-analysis', model='distilbert-base-uncased-finetuned-sst-2-english')
-    positive_results = classifier(text)[0]['label']  # type: ignore
-    return positive_results
+    positive_results: str = classifier(text)[0]['label']  # type: ignore
+    return positive_results.capitalize()
 
 
 def get_summary(text: str):
     summarizer = pipeline(
         'summarization', model='facebook/bart-large-cnn')
-    summary_results = summarizer(text)[0]['summary_text']  # type: ignore
-    return summary_results
+    summary_results: str = summarizer(text)[0]['summary_text']  # type: ignore
+    return summary_results.capitalize()
 
 
 def get_emotion(text: str):
     emotion_classifier = pipeline(
         'sentiment-analysis', model='arpanghoshal/EmoRoBERTa')
-    emotion = emotion_classifier(text)[0]['label']  # type: ignore
-    return emotion
+    emotion: str = emotion_classifier(text)[0]['label']  # type: ignore
+    return emotion.capitalize()
 
 
 def get_toxicity(text: str):
