@@ -1,3 +1,5 @@
 .env
 change-author
 db.sqlite3
+dist
+static
