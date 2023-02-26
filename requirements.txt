@@ -80,9 +80,9 @@ tf2onnx==1.13.0
 tld==0.12.7
 tokenizers==0.12.1
 tomli==2.0.1
-torch==1.13.1+cpu
-torchaudio==0.13.1+cpu
-torchvision==0.14.1+cpu
+torch==1.13.1
+torchaudio==0.13.1
+torchvision==0.14.1
 tqdm==4.64.1
 trafilatura==1.4.1
 transformers==4.22.1
