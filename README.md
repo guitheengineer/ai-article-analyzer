@@ -1,28 +1,20 @@
-README is a WIP
-
 <p align="center">
-<img src="https://i.ibb.co/mHD73K0/gif-betteraim.gif" alt="Gif demo" />
+<img src="https://i.ibb.co/1L412ms/Peek-2023-03-01-23-15.gif" alt="Gif demo" />
 </p>
 <h2 align="center">
   📰 <a href="https://betteraim.herokuapp.com">Article Analyzer</a> 📰
 </h2>
 <h3 align="center">
-  An aim training game with resizable windows, pause option and fullscreen mode.
+  Enter an article url and get stats of the text. Powered by AI/ML to give inputs about tone, overall emotion, summary, etc
 </h3>
 
 <p align="center">
-<a href="https://www.figma.com/file/HRhyH6E7IXdYxuv12bXwdA/BetterAim?node-id=0%3A1">
-<img alt="figma badge" src="https://img.shields.io/badge/Figma%20prototype%20-Figma-%2304D361">
-</a>
-<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/guilhermefront/betteraim">
-<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/guilhermefront/betteraim">
-<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/guilhermefront/betteraim">
-<img alt="GitHub" src="https://img.shields.io/github/license/guilhermefront/betteraim">
-<img alt="GitHub package.json version" src="https://img.shields.io/github/package-json/v/guilhermefront/betteraim">
-<img alt="React" src="https://img.shields.io/badge/React-JS-blue">
-<a href="https://betteraim.herokuapp.com/">
-<img alt="Heroku" src="https://img.shields.io/badge/Heroku-Deploy-blueviolet">
-</a>
+<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/guilhermefront/article-analyzer">
+<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/guilhermefront/article-analyzer">
+<img alt="Django" src="https://img.shields.io/badge/django-%23092E20.svg?style=flat&logo=django&logoColor=white">
+<img alt="Python" src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white">
+<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/guilhermefront/article-analyzer">
+<img alt="GitHub" src="https://img.shields.io/github/license/guilhermefront/article-analyzer">
 </p>
 
 <br>
