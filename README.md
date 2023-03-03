@@ -4,8 +4,9 @@
 <h2 align="center">
   📰 <a href="https://betteraim.herokuapp.com">Article Analyzer</a> 📰
 </h2>
-<h3 align="center">
-  Enter an article url and get stats of the text. Powered by AI/ML to give inputs about tone, overall emotion, summary, etc
+<h3 align="center"> 
+  Enter an article url and get stats of the content. <br />
+  Powered by AI/ML to give inputs about tone, overall emotion, summary, etc
 </h3>
 
 <p align="center">
@@ -41,24 +42,22 @@ BetterAim is an aim game for FPS players. It's intended to solve one crucial use
 
 ## 🕹 Features
 
-- [x] Resizible and draggable windows
-- [x] Fullscreen mode
-- [x] Tutorial
-- [x] Pause option
-- [x] Levels
-- [x] Local save
+- [x] Scrape the content of an article given its URL.
+- [x] Analyze the tone of the article and provide feedback on whether the tone is positive, negative, or neutral.
+- [x] Detect the overall emotion conveyed in the article and provide feedback on whether the emotion is happy, sad, angry, or something else.
+- [x] Generate a summary of the article's main points and present it in a concise format.
 
 ---
 
 ## 🛠 Tech Stack
 
-- **[React](https://github.com/facebook/react)**
-- **[Context API](https://reactjs.org/docs/context.html)**
-- **[Sass](https://github.com/sass/sass)**
-- **[React-Testing-Library](https://github.com/testing-library/react-testing-library)**
-- **[Jest](https://github.com/facebook/jest)**
-- **[TypeScript](https://github.com/microsoft/TypeScript)**
-- **[eslint](https://github.com/eslint/eslint)**
+- **[Python](https://github.com/python/cpython)**
+- **[Django](https://github.com/django/django)**
+- **[Transformers](https://github.com/huggingface/transformers)**
+- **[PyTorch](https://github.com/pytorch/pytorch)**
+- **[Tensorflow](https://github.com/tensorflow/tensorflow)**
+- **[Docker](https://github.com/docker)**
+- **[TailwindCSS](https://github.com/tailwindlabs/tailwindcss)**
 
 ---
 
@@ -66,18 +65,13 @@ BetterAim is an aim game for FPS players. It's intended to solve one crucial use
 
 In the project directory, you can run:
 
-### `npm start`
+### `pip3 install -r ./requirements`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+It will install the necessary packages
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### `python3 ./manage.py runserver`
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The app is going to be working on 127.0.0.1:8000 (default)
 
 ---
 
