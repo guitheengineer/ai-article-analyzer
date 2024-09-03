@@ -20,26 +20,6 @@
 
 <br>
 
----
-
-## 📌 Table of contents
-
-<!--ts-->
-
-- [About](#About)
-- [Table of contents](#tabela-de-conteudo)
-- [Installation](#instalacao)
-- [Tech Stack](#Tech-Stack)
-<!--te-->
-
----
-
-## 🖥 About
-
-BetterAim is an aim game for FPS players. It's intended to solve one crucial user demand: the ability to customize their experience. Only gamers themselves understand the weakness that need to be trained, so with BetterAim players can change their own game to fit their needs and extract the most productive training to improve.
-
----
-
 ## 🕹 Features
 
 - [x] Scrape the content of an article given its URL.
@@ -65,7 +45,7 @@ BetterAim is an aim game for FPS players. It's intended to solve one crucial use
 
 In the project directory, you can run:
 
-### `pip3 install -r ./requirements`
+### `pip3 install -r ./requirements.txt`
 
 It will install the necessary packages
 
@@ -74,21 +54,6 @@ It will install the necessary packages
 The app is going to be working on 127.0.0.1:8000 (default)
 
 ---
-
-### Author
-
-<a href="github.com/guilhermefront">
- <img style="border-radius: 50%;" src="https://avatars2.githubusercontent.com/u/49620737?s=460&u=affe940c45f9f14f3d456561e49e34d64e5b2078&v=4" width="100px;" alt=""/>
- <br />
-</a>
-<pre>Made with ❤️ by 
-<a href="github.com/guilhermefront">Guilherme Samuel</a></pre>
-
-👋🏽 Feel free to talk with me!
-
-[![Linkedin Badge](https://img.shields.io/badge/-Guilherme%20Samuel-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/guilherme-samuel-2aa7aa19b/)](https://www.linkedin.com/in/guilherme-samuel-2aa7aa19b/)
-[![Gmail Badge](https://img.shields.io/badge/-devguilhermefront@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:devguilhermefront@gmail.com)](mailto:devguilhermefront@gmail.com)
-[![Twitter Badge](https://img.shields.io/badge/-guilhermefront-1ca0f1?style=flat-square&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/tgmarinho)](https://twitter.com/guilhermefront)
 
 ### License
 
